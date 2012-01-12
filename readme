@@ -25,4 +25,7 @@ Bubbles more apptly a note.
 A note has a title, text body, subgraph
 
 SubGraph
-   a subgraph contains a   
+   a subgraph contains
+     - bubble with there location locked.
+     - A Title
+     - and a body of text at the top
