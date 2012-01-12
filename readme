@@ -1,0 +1,28 @@
+The purpose of this project is to allow a veriaty of note taking functions
+
+the feature list will grow and shrink I'm sure but here is a rough stab at it
+
+Feature List
+============
+
+A mind map like note taking feature.
+  each bubble is a map in and of it self.
+  each bubble has a Title and a note body
+  each bubble shows it's Tittle and as much of the body as possible
+  each bubble is connected to other bubbles by a directional arrow
+       arrows are uni or bi directional
+       arrows move around and stretch so they are never covering or hidden by bubbles
+  
+
+PDF can be displayed as backgrounds of notes
+  notes over slides can be transparent or opaic
+  
+
+Data Structures
+===============
+
+Bubbles more apptly a note.
+A note has a title, text body, subgraph
+
+SubGraph
+   a subgraph contains a   
