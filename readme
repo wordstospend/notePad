@@ -20,12 +20,35 @@ PDF can be displayed as backgrounds of notes
 
 Data Structures
 ===============
-
-Bubbles more apptly a note.
-A note has a title, text body, subgraph
+A note has a 
+  title, text body,
+ 
+bubble
+  a note
+  subgraph
+  parent graph
+  toSiblings
+  fromSiblings
+  biSiblings
+  xloc
+  yloc
 
 SubGraph
    a subgraph contains
-     - bubble with there location locked.
-     - A Title
-     - and a body of text at the top
+     - bubble(s) with there location locked.
+     -  parent Bubble
+     - A Title (from note from parent bubble)
+     - and a body of text at the top (from note)
+
+
+Controllers
+===========
+
+Bubble
+  needs to resize and be movable
+  
+Graph
+  needs to be a subclass of scrollview
+  needs needs to support centering on something
+  resizeing to fit bubbles
+  
