@@ -29,6 +29,7 @@
 		B811411914BE718C005DF07A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B811411714BE718C005DF07A /* InfoPlist.strings */; };
 		B811411C14BE718C005DF07A /* notePadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B811411B14BE718C005DF07A /* notePadTests.m */; };
 		B86363C614BFC99D004321BE /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B86363C514BFC99D004321BE /* GraphViewController.m */; };
+		B8E0C28214C9D64400124BA4 /* Bubble.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E0C28114C9D64400124BA4 /* Bubble.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		B811411B14BE718C005DF07A /* notePadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = notePadTests.m; sourceTree = "<group>"; };
 		B86363C414BFC99D004321BE /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
 		B86363C514BFC99D004321BE /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
+		B8E0C28014C9D64400124BA4 /* Bubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bubble.h; path = ../Bubble.h; sourceTree = "<group>"; };
+		B8E0C28114C9D64400124BA4 /* Bubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bubble.m; path = ../Bubble.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,8 @@
 				B81140F314BE718B005DF07A /* MainStoryboard.storyboard */,
 				B86363C414BFC99D004321BE /* GraphViewController.h */,
 				B86363C514BFC99D004321BE /* GraphViewController.m */,
+				B8E0C28014C9D64400124BA4 /* Bubble.h */,
+				B8E0C28114C9D64400124BA4 /* Bubble.m */,
 				B81140F914BE718B005DF07A /* NPFirstViewController.h */,
 				B81140FA14BE718B005DF07A /* NPFirstViewController.m */,
 				B81140FC14BE718B005DF07A /* first.png */,
@@ -298,6 +303,7 @@
 				B81140FB14BE718B005DF07A /* NPFirstViewController.m in Sources */,
 				B811410214BE718B005DF07A /* NPSecondViewController.m in Sources */,
 				B86363C614BFC99D004321BE /* GraphViewController.m in Sources */,
+				B8E0C28214C9D64400124BA4 /* Bubble.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

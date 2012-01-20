@@ -18,7 +18,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test for testing" borderStyle="roundedRect" minimumFontSize="17" id="JbX-fb-6mS">
-                                        <rect key="frame" x="376" y="565" width="391" height="31"/>
+                                        <rect key="frame" x="274" y="464" width="391" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -35,7 +35,7 @@
                 </viewController>
                 <tapGestureRecognizer id="5aj-M1-PcR"/>
             </objects>
-            <point key="canvasLocation" x="-491" y="-1879"/>
+            <point key="canvasLocation" x="-503" y="-1879"/>
         </scene>
         <scene sceneID="Cbz-Tj-u1Y">
             <objects>
@@ -117,7 +117,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GraphViewController.h"/>
             <relationships>
                 <relationship kind="action" name="createBubbleTap:"/>
-                <relationship kind="outlet" name="view" candidateClass="UIScrollView"/>
             </relationships>
         </class>
         <class className="NPSecondViewController" superclassName="UIViewController">
