@@ -5,7 +5,7 @@
         <attribute name="yloc" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="biSibling" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bubble" inverseName="biSibling" inverseEntity="Bubble" syncable="YES"/>
         <relationship name="fromSiblings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bubble" inverseName="toSiblings" inverseEntity="Bubble" syncable="YES"/>
-        <relationship name="note" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Note" syncable="YES"/>
+        <relationship name="note" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="bubble" inverseEntity="Note" syncable="YES"/>
         <relationship name="parentGraph" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Graph" inverseName="bubbles" inverseEntity="Graph" syncable="YES"/>
         <relationship name="subGraph" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Graph" inverseName="parentBubble" inverseEntity="Graph" syncable="YES"/>
         <relationship name="toSiblings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bubble" inverseName="fromSiblings" inverseEntity="Bubble" syncable="YES"/>
@@ -17,10 +17,11 @@
     <entity name="Note" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="bubble" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Bubble" inverseName="note" inverseEntity="Bubble" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Note" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Bubble" positionX="-27" positionY="234" width="128" height="165"/>
         <element name="Graph" positionX="-245" positionY="312" width="128" height="75"/>
+        <element name="Note" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

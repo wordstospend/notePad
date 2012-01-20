@@ -28,6 +28,7 @@
 		B811411114BE718C005DF07A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B81140E514BE718B005DF07A /* CoreData.framework */; };
 		B811411914BE718C005DF07A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B811411714BE718C005DF07A /* InfoPlist.strings */; };
 		B811411C14BE718C005DF07A /* notePadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B811411B14BE718C005DF07A /* notePadTests.m */; };
+		B86363C614BFC99D004321BE /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B86363C514BFC99D004321BE /* GraphViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		B811411814BE718C005DF07A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B811411A14BE718C005DF07A /* notePadTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = notePadTests.h; sourceTree = "<group>"; };
 		B811411B14BE718C005DF07A /* notePadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = notePadTests.m; sourceTree = "<group>"; };
+		B86363C414BFC99D004321BE /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
+		B86363C514BFC99D004321BE /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,8 @@
 				B81140F014BE718B005DF07A /* NPAppDelegate.h */,
 				B81140F114BE718B005DF07A /* NPAppDelegate.m */,
 				B81140F314BE718B005DF07A /* MainStoryboard.storyboard */,
+				B86363C414BFC99D004321BE /* GraphViewController.h */,
+				B86363C514BFC99D004321BE /* GraphViewController.m */,
 				B81140F914BE718B005DF07A /* NPFirstViewController.h */,
 				B81140FA14BE718B005DF07A /* NPFirstViewController.m */,
 				B81140FC14BE718B005DF07A /* first.png */,
@@ -292,6 +297,7 @@
 				B81140F814BE718B005DF07A /* notePad.xcdatamodeld in Sources */,
 				B81140FB14BE718B005DF07A /* NPFirstViewController.m in Sources */,
 				B811410214BE718B005DF07A /* NPSecondViewController.m in Sources */,
+				B86363C614BFC99D004321BE /* GraphViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +467,7 @@
 				B811412114BE718C005DF07A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B811412214BE718C005DF07A /* Build configuration list for PBXNativeTarget "notePadTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +476,7 @@
 				B811412414BE718C005DF07A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

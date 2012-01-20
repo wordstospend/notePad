@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface GraphViewController : UIViewController{
-    UIScrollView * _graphView;
 
 }
 
-@property (nonatomic, retain) UIScrollView * IBOutlet graphView;
 
 -(IBAction)createBubbleTap:(id)sender;
 
