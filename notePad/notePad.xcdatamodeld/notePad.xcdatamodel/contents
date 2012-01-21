@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="870" systemVersion="10K549" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Bubble" syncable="YES">
+    <entity name="Bubble" representedClassName="Bubble" syncable="YES">
         <attribute name="xloc" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="yloc" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="biSibling" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bubble" inverseName="biSibling" inverseEntity="Bubble" syncable="YES"/>

@@ -11,7 +11,8 @@ A mind map like note taking feature.
   each bubble shows it's Tittle and as much of the body as possible
   each bubble is connected to other bubbles by a directional arrow
        arrows are uni or bi directional
-       arrows move around and stretch so they are never covering or hidden by bubbles
+       arrows move around and stretch so they are never covering or hidden 
+       	      by bubbles
   
 
 PDF can be displayed as backgrounds of notes
@@ -46,7 +47,24 @@ Controllers
 
 Bubble
   needs to resize and be movable
-  
+  we'll being using a method simillar to MKAnotations
+  we will have a set of objects called Bubbles with (x,y)
+  We'll alloc or grab from the pool and Views called BubbleViews
+  just before they come into view and release to the pool after
+  they leave view
+
+  Questions: how do I deal with the fact the some bubbles might be larger?
+  	     sometimes a bubbleView won't have been created by the time
+	     it comes into view. I could have a buffer around the frame of 
+	     the viewing area but that doesn't really give me a way consistant
+	     solution to this problem.  The buffer would need to match the 
+	     size of the larges bubbleView and that would cuase problems 
+	     in resizing a bubbleView
+	     
+  Answer: for now I'm going to just make the refresh area larger than the view
+  	  area and just hope that I make it large enough. I can maybe get 
+	  fancier later.
+
 Graph
   needs to be a subclass of scrollview
   needs needs to support centering on something

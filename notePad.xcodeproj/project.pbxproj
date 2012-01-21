@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B810074514CAB71E0022654C /* Bubble.m in Sources */ = {isa = PBXBuildFile; fileRef = B810074414CAB71E0022654C /* Bubble.m */; };
 		B81140E014BE718B005DF07A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B81140DF14BE718B005DF07A /* UIKit.framework */; };
 		B81140E214BE718B005DF07A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B81140E114BE718B005DF07A /* Foundation.framework */; };
 		B81140E414BE718B005DF07A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B81140E314BE718B005DF07A /* CoreGraphics.framework */; };
@@ -29,7 +30,7 @@
 		B811411914BE718C005DF07A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B811411714BE718C005DF07A /* InfoPlist.strings */; };
 		B811411C14BE718C005DF07A /* notePadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B811411B14BE718C005DF07A /* notePadTests.m */; };
 		B86363C614BFC99D004321BE /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B86363C514BFC99D004321BE /* GraphViewController.m */; };
-		B8E0C28214C9D64400124BA4 /* Bubble.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E0C28114C9D64400124BA4 /* Bubble.m */; };
+		B8F4B0C214CAB0BC00F75C3E /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B0C114CAB0BC00F75C3E /* BubbleView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B810074314CAB71E0022654C /* Bubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bubble.h; sourceTree = "<group>"; };
+		B810074414CAB71E0022654C /* Bubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bubble.m; sourceTree = "<group>"; };
 		B81140DB14BE718B005DF07A /* notePad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notePad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B81140DF14BE718B005DF07A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B81140E114BE718B005DF07A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,8 +75,8 @@
 		B811411B14BE718C005DF07A /* notePadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = notePadTests.m; sourceTree = "<group>"; };
 		B86363C414BFC99D004321BE /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
 		B86363C514BFC99D004321BE /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
-		B8E0C28014C9D64400124BA4 /* Bubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bubble.h; path = ../Bubble.h; sourceTree = "<group>"; };
-		B8E0C28114C9D64400124BA4 /* Bubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bubble.m; path = ../Bubble.m; sourceTree = "<group>"; };
+		B8F4B0C014CAB0BC00F75C3E /* BubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleView.h; sourceTree = "<group>"; };
+		B8F4B0C114CAB0BC00F75C3E /* BubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,13 +139,13 @@
 		B81140E714BE718B005DF07A /* notePad */ = {
 			isa = PBXGroup;
 			children = (
+				B8F4B0C014CAB0BC00F75C3E /* BubbleView.h */,
+				B8F4B0C114CAB0BC00F75C3E /* BubbleView.m */,
 				B81140F014BE718B005DF07A /* NPAppDelegate.h */,
 				B81140F114BE718B005DF07A /* NPAppDelegate.m */,
 				B81140F314BE718B005DF07A /* MainStoryboard.storyboard */,
 				B86363C414BFC99D004321BE /* GraphViewController.h */,
 				B86363C514BFC99D004321BE /* GraphViewController.m */,
-				B8E0C28014C9D64400124BA4 /* Bubble.h */,
-				B8E0C28114C9D64400124BA4 /* Bubble.m */,
 				B81140F914BE718B005DF07A /* NPFirstViewController.h */,
 				B81140FA14BE718B005DF07A /* NPFirstViewController.m */,
 				B81140FC14BE718B005DF07A /* first.png */,
@@ -152,6 +155,8 @@
 				B811410314BE718B005DF07A /* second.png */,
 				B811410514BE718B005DF07A /* second@2x.png */,
 				B81140F614BE718B005DF07A /* notePad.xcdatamodeld */,
+				B810074314CAB71E0022654C /* Bubble.h */,
+				B810074414CAB71E0022654C /* Bubble.m */,
 				B81140E814BE718B005DF07A /* Supporting Files */,
 			);
 			path = notePad;
@@ -303,7 +308,8 @@
 				B81140FB14BE718B005DF07A /* NPFirstViewController.m in Sources */,
 				B811410214BE718B005DF07A /* NPSecondViewController.m in Sources */,
 				B86363C614BFC99D004321BE /* GraphViewController.m in Sources */,
-				B8E0C28214C9D64400124BA4 /* Bubble.m in Sources */,
+				B8F4B0C214CAB0BC00F75C3E /* BubbleView.m in Sources */,
+				B810074514CAB71E0022654C /* Bubble.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
