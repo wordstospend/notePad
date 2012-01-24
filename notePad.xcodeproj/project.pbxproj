@@ -17,10 +17,8 @@
 		B81140F214BE718B005DF07A /* NPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B81140F114BE718B005DF07A /* NPAppDelegate.m */; };
 		B81140F514BE718B005DF07A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B81140F314BE718B005DF07A /* MainStoryboard.storyboard */; };
 		B81140F814BE718B005DF07A /* notePad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B81140F614BE718B005DF07A /* notePad.xcdatamodeld */; };
-		B81140FB14BE718B005DF07A /* NPFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B81140FA14BE718B005DF07A /* NPFirstViewController.m */; };
 		B81140FD14BE718B005DF07A /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = B81140FC14BE718B005DF07A /* first.png */; };
 		B81140FF14BE718B005DF07A /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B81140FE14BE718B005DF07A /* first@2x.png */; };
-		B811410214BE718B005DF07A /* NPSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B811410114BE718B005DF07A /* NPSecondViewController.m */; };
 		B811410414BE718B005DF07A /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = B811410314BE718B005DF07A /* second.png */; };
 		B811410614BE718B005DF07A /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B811410514BE718B005DF07A /* second@2x.png */; };
 		B811410E14BE718C005DF07A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B811410D14BE718C005DF07A /* SenTestingKit.framework */; };
@@ -59,12 +57,8 @@
 		B81140F114BE718B005DF07A /* NPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPAppDelegate.m; sourceTree = "<group>"; };
 		B81140F414BE718B005DF07A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		B81140F714BE718B005DF07A /* notePad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = notePad.xcdatamodel; sourceTree = "<group>"; };
-		B81140F914BE718B005DF07A /* NPFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPFirstViewController.h; sourceTree = "<group>"; };
-		B81140FA14BE718B005DF07A /* NPFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPFirstViewController.m; sourceTree = "<group>"; };
 		B81140FC14BE718B005DF07A /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		B81140FE14BE718B005DF07A /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		B811410014BE718B005DF07A /* NPSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPSecondViewController.h; sourceTree = "<group>"; };
-		B811410114BE718B005DF07A /* NPSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPSecondViewController.m; sourceTree = "<group>"; };
 		B811410314BE718B005DF07A /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		B811410514BE718B005DF07A /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		B811410C14BE718B005DF07A /* notePadTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = notePadTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,12 +140,8 @@
 				B81140F314BE718B005DF07A /* MainStoryboard.storyboard */,
 				B86363C414BFC99D004321BE /* GraphViewController.h */,
 				B86363C514BFC99D004321BE /* GraphViewController.m */,
-				B81140F914BE718B005DF07A /* NPFirstViewController.h */,
-				B81140FA14BE718B005DF07A /* NPFirstViewController.m */,
 				B81140FC14BE718B005DF07A /* first.png */,
 				B81140FE14BE718B005DF07A /* first@2x.png */,
-				B811410014BE718B005DF07A /* NPSecondViewController.h */,
-				B811410114BE718B005DF07A /* NPSecondViewController.m */,
 				B811410314BE718B005DF07A /* second.png */,
 				B811410514BE718B005DF07A /* second@2x.png */,
 				B81140F614BE718B005DF07A /* notePad.xcdatamodeld */,
@@ -305,8 +295,6 @@
 				B81140EE14BE718B005DF07A /* main.m in Sources */,
 				B81140F214BE718B005DF07A /* NPAppDelegate.m in Sources */,
 				B81140F814BE718B005DF07A /* notePad.xcdatamodeld in Sources */,
-				B81140FB14BE718B005DF07A /* NPFirstViewController.m in Sources */,
-				B811410214BE718B005DF07A /* NPSecondViewController.m in Sources */,
 				B86363C614BFC99D004321BE /* GraphViewController.m in Sources */,
 				B8F4B0C214CAB0BC00F75C3E /* BubbleView.m in Sources */,
 				B810074514CAB71E0022654C /* Bubble.m in Sources */,
