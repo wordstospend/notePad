@@ -9,7 +9,7 @@
 #import "GraphViewController.h"
 
 @implementation GraphViewController
-
+@synthesize scrollView, doubleTapGesture;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -41,8 +41,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIScrollView *tempScrollView=(UIScrollView *)self.view;
-    tempScrollView.contentSize=CGSizeMake(1280,960);
+    UIScrollView *tempScrollView=(UIScrollView *)self.scrollView;
+    tempScrollView.contentSize=CGSizeMake(868,1011);
 }
 
 
