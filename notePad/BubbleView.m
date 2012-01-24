@@ -17,14 +17,20 @@
 #import "BubbleView.h"
 
 @implementation BubbleView
+@synthesize titleBox;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        // lets just pick a basic color for default :)
-        [self setBackgroundColor:[UIColor blueColor]];
+        CGRect textFrame = CGRectMake(9, 8, frame.size.width - 18, 31);
+        titleBox =[[[UITextField alloc] initWithFrame:textFrame] autorelease];
+        [titleBox setBackgroundColor:[UIColor whiteColor]];
+        [titleBox setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+        [self addSubview:titleBox];
+        
+        
     }
     return self;
 }

@@ -62,15 +62,17 @@
 
 #pragma mark - gestures
 - (IBAction)createBubbleTap:(UIGestureRecognizer*)sender{
+    // attached to the |scrollView| double tap gesture for creation of a |bubbleView|
     NSLog(@"createBubblleTap");
     CGPoint touch = [sender locationInView:[sender view]];
-    CGFloat standardWidth = 50;
-    CGFloat standardHight = 30;
-    CGRect standardFrame = CGRectMake(touch.x- standardWidth/2, touch.y - standardHight/2, standardWidth, standardWidth);
+    CGFloat standardWidth = 234;
+    CGFloat standardHight = 47;
+    CGRect standardFrame = CGRectMake(touch.x- standardWidth/2, touch.y - standardHight/2, standardWidth, standardHight);
+
     BubbleView * newBubbleView = [[[BubbleView alloc] initWithFrame:standardFrame] autorelease];
     [newBubbleView setBackgroundColor:[UIColor blueColor]];
-    [[self scrollView] addSubview:newBubbleView];
     
+    [[self scrollView] addSubview:newBubbleView];
     
 }
 

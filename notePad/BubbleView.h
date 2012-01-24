@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BubbleView : UIView
+@interface BubbleView : UIView{
+    
+}
+@property (retain, nonatomic) UITextField * titleBox;
 
 @end
