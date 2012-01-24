@@ -7,6 +7,7 @@
 //
 
 #import "GraphViewController.h"
+#import "BubbleView.h"
 
 @implementation GraphViewController
 @synthesize scrollView, doubleTapGesture;
@@ -60,8 +61,16 @@
 }
 
 #pragma mark - gestures
-- (IBAction)createBubbleTap:(id)sender{
+- (IBAction)createBubbleTap:(UIGestureRecognizer*)sender{
     NSLog(@"createBubblleTap");
+    CGPoint touch = [sender locationInView:[sender view]];
+    CGFloat standardWidth = 50;
+    CGFloat standardHight = 30;
+    CGRect standardFrame = CGRectMake(touch.x- standardWidth/2, touch.y - standardHight/2, standardWidth, standardWidth);
+    BubbleView * newBubbleView = [[[BubbleView alloc] initWithFrame:standardFrame] autorelease];
+    [newBubbleView setBackgroundColor:[UIColor blueColor]];
+    [[self scrollView] addSubview:newBubbleView];
+    
     
 }
 
