@@ -32,13 +32,20 @@
         // not required when not working with an image
         //[self.layer setMasksToBounds:YES];
         titleBox =[[[UITextField alloc] initWithFrame:textFrame] autorelease];
-        [titleBox.layer setCornerRadius:15.0f];
+        [titleBox.layer setCornerRadius:9.0f];
     
         [titleBox setBackgroundColor:[UIColor bubbleTextBoxColor]];
         [titleBox setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
         [self addSubview:titleBox];
         [titleBox setDelegate:self];
         
+        
+        // add move gesture for BubbleView will need to add more later
+        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panBubble:)];
+        [panGesture setMaximumNumberOfTouches:2];
+        //[panGesture setDelegate:self];  we will need this if we have simultaneous gestures which we can add later
+        [self addGestureRecognizer:panGesture];
+        [panGesture release];
         
     }
     return self;
@@ -52,6 +59,22 @@
     // Drawing code
 }
 */
+
+#pragma mark - gestures
+
+- (void)panBubble:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    UIView *piece = [gestureRecognizer view];
+    
+    //[self adjustAnchorPointForGestureRecognizer:gestureRecognizer];
+    
+    if ([gestureRecognizer state] == UIGestureRecognizerStateBegan || [gestureRecognizer state] == UIGestureRecognizerStateChanged) {
+        CGPoint translation = [gestureRecognizer translationInView:[piece superview]];
+        
+        [piece setCenter:CGPointMake([piece center].x + translation.x, [piece center].y + translation.y)];
+        [gestureRecognizer setTranslation:CGPointZero inView:[piece superview]];
+    }
+}
 
 #pragma mark - UITextFieldDelegate
 
