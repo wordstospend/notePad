@@ -15,7 +15,7 @@
 
 
 #import "BubbleView.h"
-
+#import "UIColor+NotePad.h"
 @implementation BubbleView
 @synthesize titleBox;
 
@@ -25,8 +25,9 @@
     if (self) {
         // Initialization code
         CGRect textFrame = CGRectMake(9, 8, frame.size.width - 18, 31);
+        [self setBackgroundColor:[UIColor bubbleBackGroundColor]];
         titleBox =[[[UITextField alloc] initWithFrame:textFrame] autorelease];
-        [titleBox setBackgroundColor:[UIColor whiteColor]];
+        [titleBox setBackgroundColor:[UIColor bubbleTextBoxColor]];
         [titleBox setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
         [self addSubview:titleBox];
         

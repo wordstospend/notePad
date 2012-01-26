@@ -8,6 +8,7 @@
 
 #import "GraphViewController.h"
 #import "BubbleView.h"
+#import "UIColor+NotePad.h"
 
 @implementation GraphViewController
 @synthesize scrollView, doubleTapGesture;
@@ -44,6 +45,7 @@
     [super viewDidLoad];
     UIScrollView *tempScrollView=(UIScrollView *)self.scrollView;
     tempScrollView.contentSize=CGSizeMake(868,1011);
+    [tempScrollView setBackgroundColor:[UIColor graphColor]];
 }
 
 
@@ -70,7 +72,6 @@
     CGRect standardFrame = CGRectMake(touch.x- standardWidth/2, touch.y - standardHight/2, standardWidth, standardHight);
 
     BubbleView * newBubbleView = [[[BubbleView alloc] initWithFrame:standardFrame] autorelease];
-    [newBubbleView setBackgroundColor:[UIColor blueColor]];
     
     [[self scrollView] addSubview:newBubbleView];
     

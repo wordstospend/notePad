@@ -29,6 +29,7 @@
 		B811411C14BE718C005DF07A /* notePadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B811411B14BE718C005DF07A /* notePadTests.m */; };
 		B86363C614BFC99D004321BE /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B86363C514BFC99D004321BE /* GraphViewController.m */; };
 		B8F4B0C214CAB0BC00F75C3E /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B0C114CAB0BC00F75C3E /* BubbleView.m */; };
+		D887F91414D11469003C6A48 /* UIColor+NotePad.m in Sources */ = {isa = PBXBuildFile; fileRef = D887F91314D11469003C6A48 /* UIColor+NotePad.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		B86363C514BFC99D004321BE /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
 		B8F4B0C014CAB0BC00F75C3E /* BubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleView.h; sourceTree = "<group>"; };
 		B8F4B0C114CAB0BC00F75C3E /* BubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleView.m; sourceTree = "<group>"; };
+		D887F91214D11469003C6A48 /* UIColor+NotePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+NotePad.h"; path = "notePad/UIColor+NotePad.h"; sourceTree = "<group>"; };
+		D887F91314D11469003C6A48 /* UIColor+NotePad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+NotePad.m"; path = "notePad/UIColor+NotePad.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,8 @@
 		B81140D014BE718B005DF07A = {
 			isa = PBXGroup;
 			children = (
+				D887F91214D11469003C6A48 /* UIColor+NotePad.h */,
+				D887F91314D11469003C6A48 /* UIColor+NotePad.m */,
 				B81140E714BE718B005DF07A /* notePad */,
 				B811411414BE718C005DF07A /* notePadTests */,
 				B81140DE14BE718B005DF07A /* Frameworks */,
@@ -298,6 +303,7 @@
 				B86363C614BFC99D004321BE /* GraphViewController.m in Sources */,
 				B8F4B0C214CAB0BC00F75C3E /* BubbleView.m in Sources */,
 				B810074514CAB71E0022654C /* Bubble.m in Sources */,
+				D887F91414D11469003C6A48 /* UIColor+NotePad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
