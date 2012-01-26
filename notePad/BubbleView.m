@@ -37,6 +37,7 @@
         [titleBox setBackgroundColor:[UIColor bubbleTextBoxColor]];
         [titleBox setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
         [self addSubview:titleBox];
+        [titleBox setDelegate:self];
         
         
     }
@@ -51,5 +52,12 @@
     // Drawing code
 }
 */
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
 
 @end
