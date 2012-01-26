@@ -14,6 +14,7 @@
 
 
 
+#import <QuartzCore/QuartzCore.h>
 #import "BubbleView.h"
 #import "UIColor+NotePad.h"
 @implementation BubbleView
@@ -25,8 +26,14 @@
     if (self) {
         // Initialization code
         CGRect textFrame = CGRectMake(9, 8, frame.size.width - 18, 31);
+        // set the view to a color and then round it's corrner
         [self setBackgroundColor:[UIColor bubbleBackGroundColor]];
+        [self.layer setCornerRadius:15.0f];
+        // not required when not working with an image
+        //[self.layer setMasksToBounds:YES];
         titleBox =[[[UITextField alloc] initWithFrame:textFrame] autorelease];
+        [titleBox.layer setCornerRadius:15.0f];
+    
         [titleBox setBackgroundColor:[UIColor bubbleTextBoxColor]];
         [titleBox setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
         [self addSubview:titleBox];
