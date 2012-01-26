@@ -47,6 +47,13 @@
         [self addGestureRecognizer:panGesture];
         [panGesture release];
         
+        // this is the first gesture in a chain of gestures that will link one bubble to the other
+        UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startLink:)];
+        [doubleTapGesture setNumberOfTapsRequired:2];
+        //[doubleTapGesture setDelegate:self]; we will need this if we have simultaneous gestures which we can add later
+        [self addGestureRecognizer:doubleTapGesture];
+        [doubleTapGesture release];
+        
     }
     return self;
 }
@@ -76,6 +83,10 @@
     }
 }
 
+- (void)startLink:(UITapGestureRecognizer *)gestureRecognizer
+{
+    NSLog(@"startLink");
+}
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

@@ -14,4 +14,6 @@
 @property (retain, nonatomic) UITextField * titleBox;
 
 - (void)panBubble:(UIPanGestureRecognizer *)gestureRecognizer;
+
+- (void)startLink:(UITapGestureRecognizer *)gestureRecognizer;
 @end
