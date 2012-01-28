@@ -16,4 +16,6 @@
 - (void)panBubble:(UIPanGestureRecognizer *)gestureRecognizer;
 
 - (void)startLink:(UITapGestureRecognizer *)gestureRecognizer;
+
+- (void)titleBoxToFirstResponder:(UITapGestureRecognizer *)gestureRecognizer;
 @end

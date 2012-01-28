@@ -39,20 +39,28 @@
         [self addSubview:titleBox];
         [titleBox setDelegate:self];
         
+                // this is the first gesture in a chain of gestures that will link one bubble to the other
+        UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startLink:)];
+        [doubleTapGesture setNumberOfTapsRequired:2];
+        //[doubleTapGesture setDelegate:self]; we will need this if we have simultaneous gestures which we can add later
+        [self addGestureRecognizer:doubleTapGesture];
+        
+        // in order to set the gestureRecognizers correctly I will disable user interaction for the titleBox
+        [titleBox setUserInteractionEnabled:NO];
+        UITapGestureRecognizer * singleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titleBoxToFirstResponder:)];
+        [singleTapGesture setNumberOfTapsRequired:1];
+        [singleTapGesture requireGestureRecognizerToFail:doubleTapGesture];
+        [self addGestureRecognizer:singleTapGesture];
         
         // add move gesture for BubbleView will need to add more later
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panBubble:)];
         [panGesture setMaximumNumberOfTouches:2];
         //[panGesture setDelegate:self];  we will need this if we have simultaneous gestures which we can add later
         [self addGestureRecognizer:panGesture];
-        [panGesture release];
-        
-        // this is the first gesture in a chain of gestures that will link one bubble to the other
-        UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startLink:)];
-        [doubleTapGesture setNumberOfTapsRequired:2];
-        //[doubleTapGesture setDelegate:self]; we will need this if we have simultaneous gestures which we can add later
-        [self addGestureRecognizer:doubleTapGesture];
+    
         [doubleTapGesture release];
+        [singleTapGesture release];
+        [panGesture release];
         
     }
     return self;
@@ -86,6 +94,12 @@
 - (void)startLink:(UITapGestureRecognizer *)gestureRecognizer
 {
     NSLog(@"startLink");
+}
+
+- (void)titleBoxToFirstResponder:(UITapGestureRecognizer *)gestureRecognizer{
+    NSLog(@"titleBox begin first responder");
+    [[self titleBox] setUserInteractionEnabled:YES];
+    [[self titleBox ]becomeFirstResponder];
 }
 #pragma mark - UITextFieldDelegate
 
