@@ -11,6 +11,7 @@
 @interface BubbleView : UIView <UITextFieldDelegate> {
     
 }
+@property (assign, nonatomic) UITapGestureRecognizer * singleTapGesture;
 @property (retain, nonatomic) UITextField * titleBox;
 
 - (void)panBubble:(UIPanGestureRecognizer *)gestureRecognizer;

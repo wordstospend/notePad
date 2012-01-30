@@ -14,7 +14,9 @@
 
 @property (nonatomic, retain) IBOutlet UIScrollView * scrollView;
 @property (nonatomic, retain) IBOutlet UIGestureRecognizer * doubleTapGesture;
+@property (nonatomic, retain) IBOutlet UIGestureRecognizer * bubbleJoiner;
 
 -(IBAction)createBubbleTap:(UIGestureRecognizer *)sender;
+-(IBAction)bubbleJoin:(UIGestureRecognizer *)sender;
 
 @end

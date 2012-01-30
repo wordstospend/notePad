@@ -17,8 +17,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "BubbleView.h"
 #import "UIColor+NotePad.h"
+#import "GraphViewController.h"
+
 @implementation BubbleView
-@synthesize titleBox;
+@synthesize titleBox, singleTapGesture;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -39,7 +41,7 @@
         [self addSubview:titleBox];
         [titleBox setDelegate:self];
         
-                // this is the first gesture in a chain of gestures that will link one bubble to the other
+        // this is the double tap gesture not sure what for yet
         UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startLink:)];
         [doubleTapGesture setNumberOfTapsRequired:2];
         //[doubleTapGesture setDelegate:self]; we will need this if we have simultaneous gestures which we can add later
@@ -47,11 +49,15 @@
         
         // in order to set the gestureRecognizers correctly I will disable user interaction for the titleBox
         [titleBox setUserInteractionEnabled:NO];
-        UITapGestureRecognizer * singleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titleBoxToFirstResponder:)];
+        [self setSingleTapGesture:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titleBoxToFirstResponder:)]];
         [singleTapGesture setNumberOfTapsRequired:1];
         [singleTapGesture requireGestureRecognizerToFail:doubleTapGesture];
+        // need to wait on bubbleJoin to fail this must be
+        // added to the singleTap when we have access to the superview
+        
         [self addGestureRecognizer:singleTapGesture];
         
+
         // add move gesture for BubbleView will need to add more later
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panBubble:)];
         [panGesture setMaximumNumberOfTouches:2];

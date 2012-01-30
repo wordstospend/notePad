@@ -19,6 +19,7 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="28I-T2-Gxq" appends="YES" id="HIK-3O-2rn"/>
+                                    <outletCollection property="gestureRecognizers" destination="RwA-6y-9ml" appends="YES" id="w0m-E2-DQd"/>
                                 </connections>
                             </scrollView>
                         </subviews>
@@ -26,6 +27,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Root View Controller" id="D59-Vh-XgM"/>
                     <connections>
+                        <outlet property="bubbleJoiner" destination="RwA-6y-9ml" id="Xi8-Cx-i1y"/>
                         <outlet property="doubleTapGesture" destination="28I-T2-Gxq" id="jpg-Uo-Rc7"/>
                         <outlet property="scrollView" destination="uZx-x1-bKU" id="bOu-au-iPy"/>
                         <outlet property="view" destination="WwU-Nm-FdN" id="uiW-Pj-ndO"/>
@@ -34,6 +36,11 @@
                 <tapGestureRecognizer numberOfTapsRequired="2" id="28I-T2-Gxq">
                     <connections>
                         <action selector="createBubbleTap:" destination="Dmw-VP-p78" id="qf9-eZ-GDu"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTouchesRequired="2" id="RwA-6y-9ml">
+                    <connections>
+                        <action selector="bubbleJoin:" destination="Dmw-VP-p78" id="THM-dn-RAX"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -76,7 +83,9 @@
         <class className="GraphViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GraphViewController.h"/>
             <relationships>
+                <relationship kind="action" name="bubbleJoin:" candidateClass="UIGestureRecognizer"/>
                 <relationship kind="action" name="createBubbleTap:" candidateClass="UIGestureRecognizer"/>
+                <relationship kind="outlet" name="bubbleJoiner" candidateClass="UIGestureRecognizer"/>
                 <relationship kind="outlet" name="doubleTapGesture" candidateClass="UIGestureRecognizer"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
