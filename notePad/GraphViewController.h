@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ConnectionTypeTableView.h"
+#import "BubbleView.h"
 
 @interface GraphViewController : UIViewController{
     UIPopoverController * _bubbleJoinPopOver;
@@ -20,5 +21,5 @@
 
 -(IBAction)createBubbleTap:(UIGestureRecognizer *)sender;
 -(IBAction)bubbleJoin:(UIGestureRecognizer *)sender;
-
+-(void)testBubbleGestures:(BubbleView*)resigner;
 @end

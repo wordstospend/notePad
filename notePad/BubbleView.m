@@ -110,8 +110,11 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [titleBox setUserInteractionEnabled:NO];
     [textField resignFirstResponder];
-    return NO;
+    return YES;
+    
 }
+
 
 @end

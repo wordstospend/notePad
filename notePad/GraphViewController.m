@@ -12,6 +12,12 @@
 
 @implementation GraphViewController
 @synthesize scrollView, doubleTapGesture, bubbleJoiner, bubbleJoinPopOver=_bubbleJoinPopOver;
+
+// for testing
+-(void)testBubbleGestures:(BubbleView*)resigner{
+    NSLog(@"bubbleView Just resigned");
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
