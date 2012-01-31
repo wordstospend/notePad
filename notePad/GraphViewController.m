@@ -11,7 +11,7 @@
 #import "UIColor+NotePad.h"
 
 @implementation GraphViewController
-@synthesize scrollView, doubleTapGesture, bubbleJoiner;
+@synthesize scrollView, doubleTapGesture, bubbleJoiner, bubbleJoinPopOver=_bubbleJoinPopOver;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -106,6 +106,16 @@
     }
     else{
         NSLog(@"we've got 2 bubbles");
+        // if we don't yet have a popOve create one
+        if (_bubbleJoinPopOver == nil) {
+            ConnectionTypeTableView * typeTable = [[[ConnectionTypeTableView alloc] initWithStyle:UITableViewStylePlain] autorelease];
+            [self setBubbleJoinPopOver:[[[UIPopoverController alloc] initWithContentViewController:typeTable] autorelease]];
+        }
+        // compute where to place the popOver
+        // for now just place it at touch 1
+        CGPoint popPoint = [sender locationInView:[self scrollView]];
+        CGRect popPlace = CGRectMake(popPoint.x, popPoint.y, 150, 140);
+        [self.bubbleJoinPopOver presentPopoverFromRect:popPlace inView:[self scrollView] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 
     }
     
