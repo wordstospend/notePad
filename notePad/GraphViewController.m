@@ -108,7 +108,7 @@
         [sender setEnabled:NO];
         // this will cause this gesture to fail
         [sender setEnabled:YES];
-        // now reset stateNSLog(@"we've got 2 bubbles");
+
     }
     else{
         NSLog(@"we've got 2 bubbles");
@@ -119,8 +119,13 @@
         }
         // compute where to place the popOver
         // for now just place it at touch 1
-        CGPoint popPoint = [sender locationInView:[self scrollView]];
-        CGRect popPlace = CGRectMake(popPoint.x, popPoint.y, 150, 140);
+        CGPoint popPoint1 = [sender locationOfTouch:0 inView:[self scrollView]];
+        CGPoint popPoint2 = [sender locationOfTouch:1 inView:[self scrollView]];
+        CGPoint popPoint = CGPointMake(.5*(popPoint1.x + popPoint2.x), .5*(popPoint1.y+popPoint2.y));
+        CGPoint offset = [[self scrollView] contentOffset];
+        NSLog(@"offset %f, %f", offset.x, offset.y);
+        NSLog(@"popPoint %f, %f", popPoint.x, popPoint.y);
+        CGRect popPlace = CGRectMake(popPoint.x, popPoint.y, 0, 0);
         [self.bubbleJoinPopOver presentPopoverFromRect:popPlace inView:[self scrollView] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 
     }
