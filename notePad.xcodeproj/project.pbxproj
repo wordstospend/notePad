@@ -30,6 +30,7 @@
 		B86363C614BFC99D004321BE /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B86363C514BFC99D004321BE /* GraphViewController.m */; };
 		B8F4B0C214CAB0BC00F75C3E /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F4B0C114CAB0BC00F75C3E /* BubbleView.m */; };
 		D8277B7D14D7C7D700158FC4 /* ConnectionTypeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8277B7C14D7C7D700158FC4 /* ConnectionTypeTableView.m */; };
+		D8277B9514EBFFF200158FC4 /* ConnectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8277B9414EBFFF200158FC4 /* ConnectionView.m */; };
 		D887F91414D11469003C6A48 /* UIColor+NotePad.m in Sources */ = {isa = PBXBuildFile; fileRef = D887F91314D11469003C6A48 /* UIColor+NotePad.m */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,8 @@
 		B8F4B0C114CAB0BC00F75C3E /* BubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleView.m; sourceTree = "<group>"; };
 		D8277B7B14D7C7D700158FC4 /* ConnectionTypeTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionTypeTableView.h; sourceTree = "<group>"; };
 		D8277B7C14D7C7D700158FC4 /* ConnectionTypeTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionTypeTableView.m; sourceTree = "<group>"; };
+		D8277B9314EBFFF200158FC4 /* ConnectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionView.h; sourceTree = "<group>"; };
+		D8277B9414EBFFF200158FC4 /* ConnectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionView.m; sourceTree = "<group>"; };
 		D887F91214D11469003C6A48 /* UIColor+NotePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+NotePad.h"; path = "notePad/UIColor+NotePad.h"; sourceTree = "<group>"; };
 		D887F91314D11469003C6A48 /* UIColor+NotePad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+NotePad.m"; path = "notePad/UIColor+NotePad.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +146,8 @@
 			children = (
 				B8F4B0C014CAB0BC00F75C3E /* BubbleView.h */,
 				B8F4B0C114CAB0BC00F75C3E /* BubbleView.m */,
+				D8277B9314EBFFF200158FC4 /* ConnectionView.h */,
+				D8277B9414EBFFF200158FC4 /* ConnectionView.m */,
 				B81140F014BE718B005DF07A /* NPAppDelegate.h */,
 				B81140F114BE718B005DF07A /* NPAppDelegate.m */,
 				B81140F314BE718B005DF07A /* MainStoryboard.storyboard */,
@@ -310,6 +315,7 @@
 				B810074514CAB71E0022654C /* Bubble.m in Sources */,
 				D887F91414D11469003C6A48 /* UIColor+NotePad.m in Sources */,
 				D8277B7D14D7C7D700158FC4 /* ConnectionTypeTableView.m in Sources */,
+				D8277B9514EBFFF200158FC4 /* ConnectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
