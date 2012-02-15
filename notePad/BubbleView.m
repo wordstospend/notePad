@@ -47,8 +47,6 @@
         //[doubleTapGesture setDelegate:self]; we will need this if we have simultaneous gestures which we can add later
         [self addGestureRecognizer:doubleTapGesture];
         
-        // in order to set the gestureRecognizers correctly I will disable user interaction for the titleBox
-        [titleBox setUserInteractionEnabled:NO];
         [self setSingleTapGesture:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titleBoxToFirstResponder:)]];
         [singleTapGesture setNumberOfTapsRequired:1];
         [singleTapGesture requireGestureRecognizerToFail:doubleTapGesture];
@@ -57,18 +55,16 @@
         
         [self addGestureRecognizer:singleTapGesture];
         
-
         // add move gesture for BubbleView will need to add more later
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panBubble:)];
         [panGesture setMaximumNumberOfTouches:2];
-        //[panGesture setDelegate:self];  we will need this if we have simultaneous gestures which we can add later
         [self addGestureRecognizer:panGesture];
-    
+
         [doubleTapGesture release];
         [singleTapGesture release];
         [panGesture release];
-        
     }
+
     return self;
 }
 
@@ -80,6 +76,14 @@
     // Drawing code
 }
 */
+
+-(void) removeTextGestureRecognizers {
+    for (UIGestureRecognizer *rec in self.titleBox.gestureRecognizers) {
+        if (![rec isKindOfClass:[UILongPressGestureRecognizer class]]) {
+            [self.titleBox removeGestureRecognizer:rec];
+        }
+    }
+}
 
 #pragma mark - gestures
 
@@ -99,7 +103,7 @@
 
 - (void)startLink:(UITapGestureRecognizer *)gestureRecognizer
 {
-    NSLog(@"startLink");
+    NSLog(@"DoubleTap inside BubbleView");
 }
 
 - (void)titleBoxToFirstResponder:(UITapGestureRecognizer *)gestureRecognizer{
@@ -110,10 +114,13 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [titleBox setUserInteractionEnabled:NO];
+    //[titleBox setUserInteractionEnabled:NO];
     [textField resignFirstResponder];
     return YES;
     
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self removeTextGestureRecognizers];
 }
 
 
