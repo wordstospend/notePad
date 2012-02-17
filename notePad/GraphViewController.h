@@ -22,4 +22,6 @@
 -(IBAction)createBubbleTap:(UIGestureRecognizer *)sender;
 -(IBAction)bubbleJoin:(UIGestureRecognizer *)sender;
 -(void)testBubbleGestures:(BubbleView*)resigner;
+-(void) placePopOverBetween:(CGPoint)point1 And:(CGPoint)point2;
+-(void) placeConnectionBetween:(NSArray*)bubbles;
 @end

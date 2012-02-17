@@ -9,6 +9,7 @@
 #import "GraphViewController.h"
 #import "BubbleView.h"
 #import "UIColor+NotePad.h"
+#import "ConnectionView.h"
 
 @implementation GraphViewController
 @synthesize scrollView, doubleTapGesture, bubbleJoiner, bubbleJoinPopOver=_bubbleJoinPopOver;
@@ -111,25 +112,41 @@
 
     }
     else{
-        NSLog(@"we've got 2 bubbles");
-        // if we don't yet have a popOve create one
-        if (_bubbleJoinPopOver == nil) {
-            ConnectionTypeTableView * typeTable = [[[ConnectionTypeTableView alloc] initWithStyle:UITableViewStylePlain] autorelease];
-            [self setBubbleJoinPopOver:[[[UIPopoverController alloc] initWithContentViewController:typeTable] autorelease]];
-        }
-        // compute where to place the popOver
-        // for now just place it at touch 1
+        
         CGPoint popPoint1 = [sender locationOfTouch:0 inView:[self scrollView]];
         CGPoint popPoint2 = [sender locationOfTouch:1 inView:[self scrollView]];
-        CGPoint popPoint = CGPointMake(.5*(popPoint1.x + popPoint2.x), .5*(popPoint1.y+popPoint2.y));
-        CGPoint offset = [[self scrollView] contentOffset];
-        NSLog(@"offset %f, %f", offset.x, offset.y);
-        NSLog(@"popPoint %f, %f", popPoint.x, popPoint.y);
-        CGRect popPlace = CGRectMake(popPoint.x, popPoint.y, 0, 0);
-        [self.bubbleJoinPopOver presentPopoverFromRect:popPlace inView:[self scrollView] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-
+        [self placePopOverBetween:popPoint1 And:popPoint2];
+        [self placeConnectionBetween:bubbles];
+ 
     }
     
 }
 
+-(void) placePopOverBetween:(CGPoint)point1 And:(CGPoint)point2{
+    if (_bubbleJoinPopOver == nil) {
+        ConnectionTypeTableView * typeTable = [[[ConnectionTypeTableView alloc] initWithStyle:UITableViewStylePlain] autorelease];
+        [self setBubbleJoinPopOver:[[[UIPopoverController alloc] initWithContentViewController:typeTable] autorelease]];
+    }
+    // compute where to place the popOver
+    // for now just place it at touch 1
+    CGPoint popPoint1 = point1;
+    CGPoint popPoint2 = point2;
+    CGPoint popPoint = CGPointMake(.5*(popPoint1.x + popPoint2.x), .5*(popPoint1.y+popPoint2.y));
+    CGPoint offset = [[self scrollView] contentOffset];
+    NSLog(@"offset %f, %f", offset.x, offset.y);
+    NSLog(@"popPoint %f, %f", popPoint.x, popPoint.y);
+    CGRect popPlace = CGRectMake(popPoint.x, popPoint.y, 0, 0);
+    [self.bubbleJoinPopOver presentPopoverFromRect:popPlace inView:[self scrollView] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+
+}
+
+-(void) placeConnectionBetween:(NSArray*) bubbles{
+    
+    
+    CGRect newFrame = CGRectMake(fminf(popPoint1.x, popPoint2.x), fminf(popPoint1.y, popPoint2.y), fabsf(popPoint1.x - popPoint2.x), fabsf(popPoint1.y - popPoint2.y));
+    
+    ConnectionView * newconnection = [[ConnectionView alloc] initWithFrame:newFrame ControlPoint1:popPoint1 AndControlPoint2:popPoint2];
+    [self.scrollView addSubview:newconnection];
+}
 @end
