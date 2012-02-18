@@ -10,6 +10,7 @@
 
 @implementation ConnectionView
 @synthesize controlPoint1=_controlPoint1, controlPoint2=_controlPoint2, point1=_point1, point2=_point2;
+@synthesize bubble1=_bubble1, bubble2=_bubble2;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -47,11 +48,23 @@
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame Bubble1:(UIView *)bubble1 andBubble2:(UIView *)bubble2 inside:(GraphViewController *)graph{
-    self = [super initWithFrame:frame];
+- (id)initWithBubble1:(BubbleView *)bubble1 andBubble2:(BubbleView *)bubble2 inside:(GraphViewController *)graph{
+    CGFloat pathWidth = 8.0;
+    CGFloat pathBuffer = pathWidth/2;
+    CGFloat width = fmaxf(bubble1.frame.origin.x+bubble1.frame.size.width, bubble2.frame.origin.x+bubble2.frame.size.width);
+    CGFloat height = fmaxf(bubble1.frame.origin.y+bubble1.frame.size.height, bubble2.frame.origin.y+bubble2.frame.size.height);
+    
+    CGRect newFrame = CGRectMake(fminf(bubble1.frame.origin.x, bubble2.frame.origin.x),
+                                 fminf(bubble1.frame.origin.y, bubble2.frame.origin.y),
+                                 width, height);
+    self = [super initWithFrame:newFrame];
     if (self) {
-        // now we need to set control points and all to do this the right way
+        [self setBubble1:bubble1];
+        [self setBubble2:bubble2];
+        [self calculatePoints];
+        [self setBackgroundColor:[UIColor clearColor]];  
     }
+    return self;
 }
 
 - (void)drawRect:(CGRect)rect
@@ -68,5 +81,105 @@
     [path stroke];
 }
 
+
+#pragma mark - drawing helpers
+
+- (void)calculatePoints{
+    // now find the midpoints of each side
+    CGFloat Xmeridian = self.bubble1.frame.origin.x + self.bubble1.frame.size.width/2;
+    CGFloat Ymeridian = self.bubble1.frame.origin.y + self.bubble1.frame.size.height/2;
+    CGPoint midPoints1[] = {
+        CGPointMake(Xmeridian, self.bubble1.frame.origin.y),
+        CGPointMake(self.bubble1.frame.origin.x, Ymeridian),
+        CGPointMake(Xmeridian, self.bubble1.frame.origin.y + self.bubble1.frame.size.height),
+        CGPointMake(self.bubble1.frame.origin.x + self.bubble1.frame.size.width, Ymeridian),
+    };
+    
+    Xmeridian = self.bubble2.frame.origin.x + self.bubble2.frame.size.width/2;
+    Ymeridian = self.bubble2.frame.origin.y + self.bubble2.frame.size.height/2;
+    CGPoint midPoints2[] = {
+        CGPointMake(Xmeridian, self.bubble2.frame.origin.y),
+        CGPointMake(self.bubble2.frame.origin.x, Ymeridian),
+        CGPointMake(Xmeridian, self.bubble2.frame.origin.y + self.bubble2.frame.size.height),
+        CGPointMake(self.bubble2.frame.origin.x + self.bubble2.frame.size.width, Ymeridian),
+    };
+    NSLog(@"quick test %f =4", powf(2.0, 2.0));
+    int minIndex1 = 0;
+    int minIndex2 = 0;
+    CGFloat minDistance = powf(midPoints1[0].x - midPoints2[0].x, 2) + powf(midPoints1[0].y - midPoints2[0].y, 2);
+    for (int i = 0 ; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            CGFloat newDistance = powf(midPoints1[i].x - midPoints2[j].x, 2) + powf(midPoints1[i].y - midPoints2[j].y, 2);
+            NSLog(@"old min %f, xnewdist %f at index 1: %d index: 2 %d", newDistance, minDistance, i, j);
+            if (newDistance < minDistance) {
+                minDistance = newDistance;
+                minIndex1 = i;
+                minIndex2 = j;
+            }
+        }
+    }
+    // holy shit that is ugly. lets hope we don't need to debug it :)
+    
+    // a bit of a magic number stuff here the first number is the min distance the control point is from the
+    // edge of the bubble.  This should be computed based on what is needed so the line sweeps around the edge of the bubble
+    // but computing that is hard so we will just cheat for now. with a bit of experiminations and magic
+    CGFloat dx = fmaxf(10.0, fabsf(midPoints1[minIndex1].x - midPoints2[minIndex2].x)/2);
+    CGFloat dy = fmaxf(10.0, fabsf(midPoints1[minIndex1].y - midPoints2[minIndex2].y)/2);
+    NSLog(@"The real dx is %f, dx is set to %f", fabsf(midPoints1[minIndex1].x - midPoints2[minIndex2].x)/2, dx);
+    NSLog(@"The real dy is %f, dy is set to %f", fabsf(midPoints1[minIndex1].y - midPoints2[minIndex2].y)/2, dy);
+    NSLog(@"MinIndex 1 is %d", minIndex1);
+    NSLog(@"MinIndex 2 is %d", minIndex2);
+    
+    self.point1 = CGPointMake(midPoints1[minIndex1].x,
+                                 midPoints1[minIndex1].y);
+    
+    if (minIndex1 == 2 || minIndex1 == 0) {
+        // we are changing the y value
+        if(minIndex1  == 0){
+            self.controlPoint1 = CGPointMake(self.point1.x, self.point1.y - dy);
+        }
+        else{
+            self.controlPoint1 = CGPointMake(self.point1.x, self.point1.y + dy);
+        }
+    }
+    else{
+        // ok we are changing the x
+        if (minIndex1 == 1) {
+            self.controlPoint1 = CGPointMake(self.point1.x - dx, self.point1.y);
+        }
+        else{
+            self.controlPoint1 = CGPointMake(self.point1.x + dx, self.point1.y);
+        }
+    }
+    
+    // this is a repeat of the above for the seccond control point
+    self.point2 =CGPointMake(midPoints2[minIndex2].x,
+                                midPoints2[minIndex2].y);
+    if (minIndex2 == 2 || minIndex2 == 0) {
+        // we are changing the y value
+        if(minIndex2  == 0){
+            self.controlPoint2 = CGPointMake(self.point2.x, self.point2.y - dy);
+        }
+        else{
+            self.controlPoint2 = CGPointMake(self.point2.x, self.point2.y + dy);
+        }
+    }
+    else{
+        // ok we are changing the x
+        if (minIndex2 == 1) {
+            self.controlPoint2 = CGPointMake(self.point2.x - dx, self.point2.y);
+        }
+        else{
+            self.controlPoint2 = CGPointMake(self.point2.x + dx, self.point2.y);
+        }
+    }
+
+    // an adjustment must be made to the control points because they are currently in the reference of the parent frame
+    self.controlPoint1 = CGPointMake(self.controlPoint1.x - self.frame.origin.x , self.controlPoint1.y - self.frame.origin.y);
+    self.controlPoint2 = CGPointMake(self.controlPoint2.x - self.frame.origin.x , self.controlPoint2.y - self.frame.origin.y);
+    self.point1 = CGPointMake(self.point1.x - self.frame.origin.x, self.point1.y - self.frame.origin.y);
+    self.point2 = CGPointMake(self.point2.x - self.frame.origin.x, self.point2.y - self.frame.origin.y);
+
+}
 
 @end
