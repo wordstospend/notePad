@@ -147,8 +147,8 @@
     UIView * bubble2 = [bubbles objectAtIndex:1];
     
     // now find the midpoints of each side
-    CGFloat Xmeridian = (bubble1.frame.origin.x + bubble1.frame.size.width)/2;
-    CGFloat Ymeridian = (bubble1.frame.origin.y + bubble1.frame.size.height)/2;
+    CGFloat Xmeridian = bubble1.frame.origin.x + bubble1.frame.size.width/2;
+    CGFloat Ymeridian = bubble1.frame.origin.y + bubble1.frame.size.height/2;
     CGPoint midPoints1[] = {
         CGPointMake(Xmeridian, bubble1.frame.origin.y),
         CGPointMake(bubble1.frame.origin.x, Ymeridian),
@@ -156,20 +156,22 @@
         CGPointMake(bubble1.frame.origin.x + bubble1.frame.size.width, Ymeridian),
     };
     
-    Xmeridian = (bubble2.frame.origin.x + bubble2.frame.size.width)/2;
-    Ymeridian = (bubble2.frame.origin.y + bubble2.frame.size.height)/2;
+    Xmeridian = bubble2.frame.origin.x + bubble2.frame.size.width/2;
+    Ymeridian = bubble2.frame.origin.y + bubble2.frame.size.height/2;
     CGPoint midPoints2[] = {
         CGPointMake(Xmeridian, bubble2.frame.origin.y),
         CGPointMake(bubble2.frame.origin.x, Ymeridian),
         CGPointMake(Xmeridian, bubble2.frame.origin.y + bubble2.frame.size.height),
-        CGPointMake(bubble2.frame.origin.x + bubble1.frame.size.width, Ymeridian),
+        CGPointMake(bubble2.frame.origin.x + bubble2.frame.size.width, Ymeridian),
     };
+    NSLog(@"quick test %f =4", powf(2.0, 2.0));
     int minIndex1 = 0;
     int minIndex2 = 0;
     CGFloat minDistance = powf(midPoints1[0].x - midPoints2[0].x, 2) + powf(midPoints1[0].y - midPoints2[0].y, 2);
-    for (int i = 1 ; i < 4; i++) {
-        for (int j = 1; j < 4; j++) {
+    for (int i = 0 ; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
             CGFloat newDistance = powf(midPoints1[i].x - midPoints2[j].x, 2) + powf(midPoints1[i].y - midPoints2[j].y, 2);
+            NSLog(@"old min %f, xnewdist %f at index 1: %d index: 2 %d", newDistance, minDistance, i, j);
             if (newDistance < minDistance) {
                 minDistance = newDistance;
                 minIndex1 = i;
@@ -177,23 +179,28 @@
             }
         }
     }
+    // holy shit that is ugly. lets hope we don't need to debug it :)
     
     // a bit of a magic number stuff here the first number is the min distance the control point is from the
     // edge of the bubble.  This should be computed based on what is needed so the line sweeps around the edge of the bubble
     // but computing that is hard so we will just cheat for now. with a bit of experiminations and magic
-    CGFloat dx = fminf(10.0, fabsf(midPoints1[minIndex1].x - midPoints2[minIndex2].x));
-    CGFloat dy = fminf(10.0, fabsf(midPoints1[minIndex1].y - midPoints2[minIndex2].x));
+    CGFloat dx = fmaxf(10.0, fabsf(midPoints1[minIndex1].x - midPoints2[minIndex2].x)/2);
+    CGFloat dy = fmaxf(10.0, fabsf(midPoints1[minIndex1].y - midPoints2[minIndex2].y)/2);
+    NSLog(@"The real dx is %f, dx is set to %f", fabsf(midPoints1[minIndex1].x - midPoints2[minIndex2].x)/2, dx);
+    NSLog(@"The real dy is %f, dy is set to %f", fabsf(midPoints1[minIndex1].y - midPoints2[minIndex2].y)/2, dy);
+    NSLog(@"MinIndex 1 is %d", minIndex1);
+    NSLog(@"MinIndex 2 is %d", minIndex2);
     
-    CGPoint point1 = CGPointMake(midPoints1[minIndex1].x +self.scrollView.contentOffset.x,
-                                 midPoints1[minIndex1].y+self.scrollView.contentOffset.y);
+    CGPoint point1 = CGPointMake(midPoints1[minIndex1].x,
+                                 midPoints1[minIndex1].y);
     CGPoint control1;
-    if (minIndex1 == 2 || 0) {
+    if (minIndex1 == 2 || minIndex1 == 0) {
         // we are changing the y value
         if(minIndex1  == 0){
-            control1 = CGPointMake(point1.x, point1.y + dy);
+            control1 = CGPointMake(point1.x, point1.y - dy);
         }
         else{
-            control1 = CGPointMake(point1.x, point1.y - dy);
+            control1 = CGPointMake(point1.x, point1.y + dy);
         }
     }
     else{
@@ -207,16 +214,16 @@
     }
     
     // this is a repeat of the above for the seccond control point
-    CGPoint point2 =CGPointMake(midPoints2[minIndex2].x +self.scrollView.contentOffset.x,
-                                midPoints2[minIndex2].y+self.scrollView.contentOffset.y);
+    CGPoint point2 =CGPointMake(midPoints2[minIndex2].x,
+                                midPoints2[minIndex2].y);
     CGPoint control2;
-    if (minIndex2 == 2 || 0) {
+    if (minIndex2 == 2 || minIndex2 == 0) {
         // we are changing the y value
         if(minIndex2  == 0){
-            control2 = CGPointMake(point2.x, point2.y + dy);
+            control2 = CGPointMake(point2.x, point2.y - dy);
         }
         else{
-            control2 = CGPointMake(point2.x, point2.y - dy);
+            control2 = CGPointMake(point2.x, point2.y + dy);
         }
     }
     else{
@@ -230,6 +237,8 @@
     }
     
     ConnectionView * newconnection = [[ConnectionView alloc] initWithPoint1:point1 Point2:point2 Control1:control1 AndControl2:control2];
+    //ConnectionView * newconnection = [[ConnectionView alloc] initWithPoint1:bubble1.frame.origin Point2:CGPointMake(bubble1.frame.size.width + bubble1.frame.origin.x, bubble1.frame.size.height 
+    //  + bubble1.frame.origin.y) Control1:bubble1.frame.origin AndControl2:CGPointMake(bubble1.frame.size.width + bubble1.frame.origin.x, bubble1.frame.size.height + bubble1.frame.origin.y)];
     [self.scrollView addSubview:newconnection];
     [newconnection release];
 

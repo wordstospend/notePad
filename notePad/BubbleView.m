@@ -41,6 +41,8 @@
         [self addSubview:titleBox];
         [titleBox setDelegate:self];
         
+        [self removeTextGestureRecognizers];
+        
         // this is the double tap gesture not sure what for yet
         UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startLink:)];
         [doubleTapGesture setNumberOfTapsRequired:2];
