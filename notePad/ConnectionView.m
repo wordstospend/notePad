@@ -38,6 +38,7 @@
         self.controlPoint2 = control2;
         self.point1 = point1;
         self.point2 = point2;
+        [self setBackgroundColor:[UIColor whiteColor]];  
     }
     return self;
 }
