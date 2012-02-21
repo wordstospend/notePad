@@ -51,11 +51,11 @@
 - (id)initWithBubble1:(BubbleView *)bubble1 andBubble2:(BubbleView *)bubble2 inside:(GraphViewController *)graph{
     CGFloat pathWidth = 8.0;
     CGFloat pathBuffer = pathWidth/2;
-    CGFloat width = fmaxf(bubble1.frame.origin.x+bubble1.frame.size.width, bubble2.frame.origin.x+bubble2.frame.size.width);
-    CGFloat height = fmaxf(bubble1.frame.origin.y+bubble1.frame.size.height, bubble2.frame.origin.y+bubble2.frame.size.height);
+    CGPoint origin = CGPointMake(fminf(bubble1.frame.origin.x, bubble2.frame.origin.x), fminf(bubble1.frame.origin.y, bubble2.frame.origin.y));
+    CGFloat width = fmaxf(bubble1.frame.origin.x+bubble1.frame.size.width, bubble2.frame.origin.x+bubble2.frame.size.width) - origin.x;
+    CGFloat height = fmaxf(bubble1.frame.origin.y+bubble1.frame.size.height, bubble2.frame.origin.y+bubble2.frame.size.height) - origin.y;
     
-    CGRect newFrame = CGRectMake(fminf(bubble1.frame.origin.x, bubble2.frame.origin.x),
-                                 fminf(bubble1.frame.origin.y, bubble2.frame.origin.y),
+    CGRect newFrame = CGRectMake(origin.x, origin.y,
                                  width, height);
     self = [super initWithFrame:newFrame];
     if (self) {
