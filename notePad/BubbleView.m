@@ -18,9 +18,10 @@
 #import "BubbleView.h"
 #import "UIColor+NotePad.h"
 #import "GraphViewController.h"
+#import "ConnectionView.h"
 
 @implementation BubbleView
-@synthesize titleBox, singleTapGesture;
+@synthesize titleBox, singleTapGesture, connectionsArray=_connectionsArray;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -101,6 +102,13 @@
         [piece setCenter:CGPointMake([piece center].x + translation.x, [piece center].y + translation.y)];
         [gestureRecognizer setTranslation:CGPointZero inView:[piece superview]];
     }
+    
+        NSEnumerator *e = [[self connectionsArray] objectEnumerator];
+        ConnectionView * connection;
+        while(connection = [e nextObject]){
+            // do something to update the connection view
+        }
+
 }
 
 - (void)startLink:(UITapGestureRecognizer *)gestureRecognizer

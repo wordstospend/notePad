@@ -13,6 +13,7 @@
 }
 @property (assign, nonatomic) UITapGestureRecognizer * singleTapGesture;
 @property (retain, nonatomic) UITextField * titleBox;
+@property (retain, nonatomic) NSMutableArray * connectionsArray;
 
 - (void)panBubble:(UIPanGestureRecognizer *)gestureRecognizer;
 
