@@ -66,6 +66,10 @@
         [doubleTapGesture release];
         [singleTapGesture release];
         [panGesture release];
+        
+        
+        // connnectionsArray
+        [self setConnectionsArray:[[[NSMutableArray alloc] initWithCapacity:0] autorelease]];
     }
 
     return self;
@@ -107,6 +111,9 @@
         ConnectionView * connection;
         while(connection = [e nextObject]){
             // do something to update the connection view
+            [connection updateFrame];
+            [connection calculatePoints];
+            [connection setNeedsDisplay];
         }
 
 }

@@ -148,6 +148,8 @@
     ConnectionView * newconnection = [[ConnectionView alloc] initWithBubble1:bubble1 andBubble2:bubble2 inside:self];
     [self.scrollView addSubview:newconnection];
     [self.scrollView sendSubviewToBack:newconnection];
+    [[(BubbleView*)bubble1 connectionsArray] addObject:newconnection];
+    [[(BubbleView*)bubble2 connectionsArray] addObject:newconnection];
     [newconnection release];
 
 

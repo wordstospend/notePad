@@ -27,5 +27,6 @@
 - (id)initWithFrame:(CGRect)frame ControlPoint1:(CGPoint)point1 AndControlPoint2:(CGPoint)point2;
 - (id)initWithBubble1:(UIView *)bubble1 andBubble2:(UIView *)bubble2 inside:(GraphViewController *)graph;
 - (id)initWithPoint1:(CGPoint)point1 Point2:(CGPoint)point2 Control1:(CGPoint)control1 AndControl2:(CGPoint)control2;
+- (void)updateFrame;
 - (void)calculatePoints;
 @end

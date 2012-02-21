@@ -84,6 +84,16 @@
 
 #pragma mark - drawing helpers
 
+- (void)updateFrame{
+    CGPoint origin = CGPointMake(fminf(self.bubble1.frame.origin.x, self.bubble2.frame.origin.x), fminf(self.bubble1.frame.origin.y, self.bubble2.frame.origin.y));
+    CGFloat width = fmaxf(self.bubble1.frame.origin.x+self.bubble1.frame.size.width, self.bubble2.frame.origin.x+self.bubble2.frame.size.width) - origin.x;
+    CGFloat height = fmaxf(self.bubble1.frame.origin.y+self.bubble1.frame.size.height, self.bubble2.frame.origin.y+self.bubble2.frame.size.height) - origin.y;
+    
+    CGRect newFrame = CGRectMake(origin.x, origin.y,
+                                 width, height);
+    [self setFrame:newFrame];
+
+}
 - (void)calculatePoints{
     // now find the midpoints of each side
     CGFloat Xmeridian = self.bubble1.frame.origin.x + self.bubble1.frame.size.width/2;
